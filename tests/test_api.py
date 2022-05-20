@@ -193,11 +193,11 @@ class TestPlayerApi:
             format="json"
         )
 
-        team = json.loads(response.content)
+        player = json.loads(response.content)
 
         assert response.status_code == 200
-        assert team["name"] == expected["name"]
-        assert team["goals"] == oliver_atom.goals
+        assert player["name"] == expected["name"]
+        assert player["goals"] == oliver_atom.goals
 
     def test_remove_player(self, api_client, oliver_atom):
         url = self.player_endpoint + str(oliver_atom.pk) + "/"
